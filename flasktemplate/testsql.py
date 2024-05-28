@@ -14,4 +14,4 @@ mycursor.execute("SELECT * FROM Customers")
 myresult = mycursor.fetchall()
 
 for x in myresult:
-  print(x)
+  print(x[0] + ", " + x[1])
