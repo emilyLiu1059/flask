@@ -22,7 +22,7 @@ def report():
    return render_template('report.html', report=report, lower=lower_letter, upper=upper_letter, num_end=num_end)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
 
 mydb = mysql.connector.connect(
   host="172.31.26.182",
