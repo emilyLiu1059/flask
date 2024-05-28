@@ -1,5 +1,6 @@
 # Set up your imports and your flask app.
 from flask import Flask, render_template, request
+import mysql.connector
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,3 +23,19 @@ def report():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+mydb = mysql.connector.connect(
+  host="172.31.26.182",
+  user="root",
+  password="Emily123$",
+  database="Northwind"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM Customers")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
